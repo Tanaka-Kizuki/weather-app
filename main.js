@@ -1,4 +1,4 @@
-let getWeather = function (api_type, area_id) {
+let getFromAPI = function (api_type, area_id,callback) {
      const fetch = require('node-fetch');
      const url_base = 'https://api.openweathermap.org/data/2.5/';
      let url_pram = '?id=' + area_id + '&units=metric&appid=';
@@ -8,12 +8,22 @@ let getWeather = function (api_type, area_id) {
      })
      .then(function(jsonData){
           // JSONデータを扱った処理など
-          console.log(jsonData)
-     });
+           data = jsonData 
+     })
+     .then(() => {
+          callback(data)
+     })
 }
 
-getWeather('forecast', 1850144);
+const getWeather = function(data) {
+     let weathers = data.list;
+     weathers.forEach((weather) => {
+          let temp = weather.main.temp;
+          console.log(temp)
+     })
+}
 
+getFromAPI('forecast', 1850144,getWeather);
 
 // 'use strict';
 
