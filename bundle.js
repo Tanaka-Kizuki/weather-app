@@ -20,16 +20,26 @@ const getWeather = function(data) {
      let forecasts = data.list;
      console.log(forecasts)
      forecasts.forEach((forecast) => {
-          let temp = forecast.weather[0].main;
-          let date = new Date(forecast.dt * 1000);
-          let year = date.getFullYear();
-          let month = date.getMonth()+1;
-          let day = date.getDate();
-          let hour = ( date.getHours()   < 10 ) ? '0' + date.getHours()   : date.getHours();
-          let min  = ( date.getMinutes() < 10 ) ? '0' + date.getMinutes() : date.getMinutes();
+          //予報日時(unix→JST)
+          let datetime = new Date(forecast.dt * 1000);
+          let year = datetime.getFullYear();
+          let month = datetime.getMonth()+1;
+          let day = datetime.getDate();
+          let hour = ( datetime.getHours()   < 10 ) ? '0' + datetime.getHours()   : datetime.getHours();
+          let min  = ( datetime.getMinutes() < 10 ) ? '0' + datetime.getMinutes() : datetime.getMinutes();
+          //JST日時
+          let date = year + '年' + month + '月' + day + '日';
+          let time = hour + ':' + min;
 
-          console.log(year + '-' + month + '-' + day + ' ' + hour + ':' + min);
-          let inner = '<div>' + temp + '</div>'
+          //予報天気情報
+          let weather = forecast.weather[0].description;
+
+          //アイコン取得
+          let icon = forecast.weather[0].icon;
+          console.log(icon)
+          let icon_tab = '<img src="https://openweathermap.org/img/wn/' + icon + '@2x.png">'
+
+          let inner = '<div>' + date + time + weather + icon_tab + '</div>'
           document.querySelector('#weather').innerHTML += inner
      })
 }
