@@ -2,7 +2,7 @@
 let getFromAPI = function (api_type, area_id,callback) {
      const fetch = require('node-fetch');
      const url_base = 'https://api.openweathermap.org/data/2.5/';
-     let url_pram = '?id=' + area_id + '&units=metric&appid=b2deb02248945235bb20563e4ac91ed7';
+     let url_pram = '?id=' + area_id + '&units=metric&appid=';
      let url = url_base + api_type + url_pram;
      fetch(url).then((res)=> {
                return res.json()
@@ -17,10 +17,20 @@ let getFromAPI = function (api_type, area_id,callback) {
 }
 
 const getWeather = function(data) {
-     let weathers = data.list;
-     weathers.forEach((weather) => {
-          let temp = weather.main.temp;
-          console.log(temp)
+     let forecasts = data.list;
+     console.log(forecasts)
+     forecasts.forEach((forecast) => {
+          let temp = forecast.weather[0].main;
+          let date = new Date(forecast.dt * 1000);
+          let year = date.getFullYear();
+          let month = date.getMonth()+1;
+          let day = date.getDate();
+          let hour = ( date.getHours()   < 10 ) ? '0' + date.getHours()   : date.getHours();
+          let min  = ( date.getMinutes() < 10 ) ? '0' + date.getMinutes() : date.getMinutes();
+
+          console.log(year + '-' + month + '-' + day + ' ' + hour + ':' + min);
+          let inner = '<div>' + temp + '</div>'
+          document.querySelector('#weather').innerHTML += inner
      })
 }
 

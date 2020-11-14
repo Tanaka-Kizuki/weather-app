@@ -1,7 +1,7 @@
 let getFromAPI = function (api_type, area_id,callback) {
      const fetch = require('node-fetch');
      const url_base = 'https://api.openweathermap.org/data/2.5/';
-     let url_pram = '?id=' + area_id + '&units=metric&appid=';
+     let url_pram = '?id=' + area_id + '&units=metric&appid=b2deb02248945235bb20563e4ac91ed7';
      let url = url_base + api_type + url_pram;
      fetch(url).then((res)=> {
                return res.json()
@@ -19,7 +19,8 @@ const getWeather = function(data) {
      let weathers = data.list;
      weathers.forEach((weather) => {
           let temp = weather.main.temp;
-          console.log(temp)
+          document.querySelector('#weather').innerHTML = temp
+          // console.log(temp)
      })
 }
 
