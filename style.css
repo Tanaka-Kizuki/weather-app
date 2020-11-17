@@ -1,3 +1,94 @@
-/* weather {
+.weather {
+     text-align: center;
+}
+
+#box1 {
      display: flex;
-} */
+     flex-wrap: wrap;
+     justify-content: center;
+     width:70%;
+     margin: 0px auto;
+     margin-top: 0;
+     font-size: 20px;
+}
+
+#box2 {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     width:70%;
+     margin: 50px auto;
+     font-size: 20px;
+}
+
+#box3 {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     width:70%;
+     margin: 50px auto;
+     font-size: 20px;
+}
+
+#box4 {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     width:70%;
+     margin: 50px auto;
+     font-size: 20px;
+}
+
+#box5 {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     width:70%;
+     margin: 50px auto;
+     font-size: 20px;
+}
+
+#box6 {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     width:70%;
+     margin: 50px auto;
+     font-size: 20px;
+}
+
+#date1 {
+     margin-top: 50px;
+     font-size: 25px;
+     font-weight: bold;
+}
+
+#date2 {
+     margin-top: 50px;
+     font-size: 25px;
+     font-weight: bold;
+}
+
+#date3 {
+     margin-top: 50px;
+     font-size: 25px;
+     font-weight: bold;
+}
+
+#date4 {
+     margin-top: 50px;
+     font-size: 25px;
+     font-weight: bold;
+}
+
+#date5 {
+     margin-top: 50px;
+     font-size: 25px;
+     font-weight: bold;
+}
+
+#date6 {
+     margin-top: 50px;
+     font-size: 25px;
+     font-weight: bold;
+}

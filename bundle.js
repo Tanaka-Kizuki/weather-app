@@ -1,4 +1,6 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+
+//openWeatherAPIより天気情報(5日間3時間おき)を取得
 let getFromAPI = function (api_type, area_id,callback) {
      const fetch = require('node-fetch');
      const url_base = 'https://api.openweathermap.org/data/2.5/';
@@ -31,8 +33,6 @@ const getWeather = function(data) {
                let date_number = "#date" + number;
                document.querySelector(date_number).innerHTML += date;
           }
-          // let day = datetime.getDate();
-          // let date = year + '年' + month + '月' + day + '日';
 
           //JST時時間
           let hour = ( datetime.getHours()   < 10 ) ? '0' + datetime.getHours()   : datetime.getHours();
@@ -54,7 +54,6 @@ const getWeather = function(data) {
           if(inner.substr(5,5) === "21:00") {
                number += 1;
           }
-          // document.querySelector('#weather').innerHTML += inner;
      })
 }
 
