@@ -1,3 +1,3 @@
 # 天気予報アプリ
 
-5日間の天気予報をopenWeatherAPIを使用して取得
+6日間の天気予報を3時間お気にopenWeatherAPIを使用して取得・表示
